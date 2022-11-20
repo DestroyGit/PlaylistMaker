@@ -11,9 +11,11 @@
     <dimen name="margin20">20dp</dimen>
     <dimen name="margin28">28dp</dimen>
     <dimen name="margin61">61dp</dimen>
-    <dimen name="switchW32">32dp</dimen>
     <dimen name="switchH12">12dp</dimen>
     <dimen name="margin42">42dp</dimen>
     <dimen name="text22">22sp</dimen>
     <dimen name="text16">16sp</dimen>
+    <dimen name="padding16">16dp</dimen>
+    <dimen name="padding14">14dp</dimen>
+    <dimen name="padding22">22dp</dimen>
 </resources>
