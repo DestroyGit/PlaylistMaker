@@ -54,6 +54,7 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/btn_reply"
         style="@style/SettingsStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,6 +63,7 @@
         app:drawableEndCompat="@drawable/ic_reply" />
 
     <TextView
+        android:id="@+id/btn_support"
         style="@style/SettingsStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,6 +72,7 @@
         app:drawableEndCompat="@drawable/ic_support" />
 
     <TextView
+        android:id="@+id/btn_forward"
         style="@style/SettingsStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
