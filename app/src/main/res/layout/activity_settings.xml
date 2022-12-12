@@ -10,28 +10,23 @@
     android:paddingEnd="@dimen/padding16">
 
     <LinearLayout
+        style="@style/heads_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin4"
-        android:layout_marginTop="@dimen/margin20"
-        android:background="@color/settings_background"
-        android:orientation="horizontal">
+        android:background="@color/settings_background">
 
         <ImageView
+            style="@style/heads_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/settings_background"
-            android:src="@drawable/ic_back" />
+            android:background="@color/settings_background" />
 
         <TextView
+            style="@style/heads_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin28"
             android:background="@color/settings_background"
-            android:text="@string/settings"
-            android:textColor="@color/settings_head"
-            android:textSize="@dimen/text22" />
+            android:text="@string/settings" />
     </LinearLayout>
 
     <FrameLayout
