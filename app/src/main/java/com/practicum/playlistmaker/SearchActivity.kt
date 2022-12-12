@@ -11,11 +11,17 @@ import android.widget.EditText
 import android.widget.ImageView
 
 class SearchActivity : AppCompatActivity() {
+    companion object{
+        const val SEARCH_LINE = "SEARCH_LINE"
+    }
+
+    private lateinit var textSearch: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val textSearch = findViewById<EditText>(R.id.inputSearch)
+        textSearch = findViewById(R.id.inputSearch)
         val btnClearText = findViewById<ImageView>(R.id.clearTextSearch)
 
         btnClearText.setOnClickListener(){
@@ -43,5 +49,15 @@ class SearchActivity : AppCompatActivity() {
         } else{
             View.VISIBLE
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(SEARCH_LINE, textSearch.text.toString())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        textSearch.setText(savedInstanceState.getString(SEARCH_LINE))
     }
 }
