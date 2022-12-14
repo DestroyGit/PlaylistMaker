@@ -22,7 +22,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_search"
-        style="@style/MainStyle"
+        style="@style/MainButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin17"
@@ -33,7 +33,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_media"
-        style="@style/MainStyle"
+        style="@style/MainButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin17"
@@ -44,7 +44,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_settings"
-        style="@style/MainStyle"
+        style="@style/MainButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin17"
