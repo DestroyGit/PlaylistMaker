@@ -10,19 +10,19 @@
     android:paddingEnd="@dimen/padding16">
 
     <LinearLayout
-        style="@style/heads_layout"
+        style="@style/HeadsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/settings_background">
 
         <ImageView
-            style="@style/heads_image"
+            style="@style/HeadsImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/settings_background" />
 
         <TextView
-            style="@style/heads_text"
+            style="@style/HeadsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/settings_background"

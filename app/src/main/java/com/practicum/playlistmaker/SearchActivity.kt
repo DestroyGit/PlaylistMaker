@@ -16,6 +16,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private lateinit var textSearch: EditText
+    private var searchTextString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class SearchActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                searchTextString = textSearch.text.toString()
                 btnClearText.visibility = visibilityView(p0)
             }
 
@@ -53,7 +55,7 @@ class SearchActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(SEARCH_LINE, textSearch.text.toString())
+        outState.putString(SEARCH_LINE, searchTextString)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
