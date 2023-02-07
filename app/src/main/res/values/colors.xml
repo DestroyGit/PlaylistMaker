@@ -26,4 +26,9 @@
     <color name="search_background_searchline">#E6E8EB</color>
     <color name="search_hint_text_searchline">#AEAFB4</color>
     <color name="search_text_searchline">#1A1B22</color>
+
+    <color name="track_name">#000000</color>
+    <color name="track_band_and_duration">#AEAFB4</color>
+    <color name="track_img_point">#AEAFB4</color>
+
 </resources>
