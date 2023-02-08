@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/imageAlbum"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="@dimen/album_image"
+        android:layout_height="@dimen/album_image"
+        android:layout_marginTop="@dimen/track_margin8"
+        android:layout_marginEnd="@dimen/track_margin8"
         tools:layout_marginStart="13dp"
         tools:src="@drawable/ic_album"/>
 
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/track_margin8"
             tools:text="Yesterday"/>
 
         <LinearLayout
@@ -39,7 +39,7 @@
                 android:id="@+id/bandName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/track_margin8"
                 android:layout_marginTop="1dp"
                 tools:text="The Beatles"/>
 
@@ -66,8 +66,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginTop="@dimen/track_margin23"
+        android:layout_marginBottom="@dimen/track_margin23"
         android:layout_marginEnd="24dp"
         app:drawableEndCompat="@drawable/ic_forward"/>
 
