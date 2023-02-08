@@ -18,4 +18,8 @@
     <color name="search_background_searchline">#FFFFFF</color>
     <color name="search_hint_text_searchline">#1A1B22</color>
     <color name="search_text_searchline">#1A1B22</color>
+
+    <color name="track_name">#FFFFFF</color>
+    <color name="track_band_and_duration">#FFFFFF</color>
+    <color name="track_img_point">#FFFFFF</color>
 </resources>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/drawable/ic_album.xml" value="0.1895" />
         <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/drawable/ic_back.xml" value="0.119" />
         <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/drawable/ic_clear.xml" value="0.119" />
         <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/drawable/ic_forward.xml" value="0.1775" />
@@ -19,6 +20,7 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/layout/activity_media.xml" value="0.1609375" />
         <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/layout/activity_search.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/layout/activity_settings.xml" value="0.2" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/PlaylistMaker/app/src/main/res/layout/track_view.xml" value="0.35520833333333335" />
       </map>
     </option>
   </component>
