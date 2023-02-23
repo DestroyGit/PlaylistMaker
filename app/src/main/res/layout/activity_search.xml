@@ -64,6 +64,8 @@
                 android:hint="@string/search_hint"
                 android:inputType="text"
                 android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:singleLine = "true"
                 android:textColor="@color/search_text_searchline"
                 android:textColorHint="@color/search_hint_text_searchline" />
 
@@ -89,5 +91,37 @@
         android:layout_marginTop="24dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/placeholderMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+        <ImageView
+            android:id="@+id/placeholderMessageImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:src="@drawable/ic_search_not_found"/>
+        <TextView
+            android:id="@+id/placeholderMessageText"
+            style="@style/SearchTextErrors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin16"
+            android:visibility="visible"
+            tools:text="@string/search_server_error"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/placeholderMessageButtonRefresh"
+            style="@style/SearchButtonErrors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
 
 </LinearLayout>

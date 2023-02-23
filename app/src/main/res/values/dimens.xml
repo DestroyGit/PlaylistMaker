@@ -21,4 +21,5 @@
     <dimen name="album_image">45dp</dimen>
     <dimen name="track_margin8">8dp</dimen>
     <dimen name="track_margin23">8dp</dimen>
+    <dimen name="placeholder_margin24">24dp</dimen>
 </resources>
