@@ -10,9 +10,11 @@
     android:paddingEnd="@dimen/padding16">
 
     <LinearLayout
-        style="@style/HeadsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/head_margin_top_image"
+        android:layout_marginStart="16dp"
         android:background="@color/settings_background">
 
         <ImageView
@@ -25,6 +27,8 @@
             style="@style/HeadsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/head_text"
+            android:layout_marginStart="@dimen/head_margin_title"
             android:background="@color/settings_background"
             android:text="@string/settings" />
     </LinearLayout>
@@ -35,17 +39,14 @@
         android:layout_marginTop="@dimen/margin61"
         android:background="@color/settings_background">
 
-        <TextView
+        <com.google.android.material.switchmaterial.SwitchMaterial
             style="@style/SettingsStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/dark_theme" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/switchH12"
-            android:layout_gravity="end" />
+            android:id="@+id/themeSwitcher"
+            android:text="@string/dark_theme"
+            android:textSize="16sp"
+            android:layout_gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </FrameLayout>
 
     <TextView
@@ -53,7 +54,7 @@
         style="@style/SettingsStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin42"
+        android:layout_marginTop="21dp"
         android:text="@string/reply_app"
         app:drawableEndCompat="@drawable/ic_reply" />
 

@@ -29,6 +29,7 @@
     <color name="search_text_error">#1A1B22</color>
     <color name="search_button_error_text">#FFFFFF</color>
     <color name="search_button_error_background">#1A1B22</color>
+    <color name="search_text_you_searched">#1A1B22</color>
 
     <color name="track_name">#000000</color>
     <color name="track_band_and_duration">#AEAFB4</color>

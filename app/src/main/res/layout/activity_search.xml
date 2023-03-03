@@ -9,9 +9,10 @@
     >
 
     <LinearLayout
-        style="@style/HeadsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/head_margin_top_image"
         android:layout_marginStart="16dp"
         android:background="@color/search_background">
 
@@ -25,6 +26,8 @@
             style="@style/HeadsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/head_text"
+            android:layout_marginStart="@dimen/head_margin_title"
             android:background="@color/search_background"
             android:text="@string/search" />
     </LinearLayout>
@@ -88,7 +91,8 @@
         android:layout_marginStart="13dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="24dp"
+        tools:visibility="gone">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -96,7 +100,7 @@
         android:id="@+id/placeholderMessage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible">
@@ -104,13 +108,14 @@
             android:id="@+id/placeholderMessageImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
             android:src="@drawable/ic_search_not_found"/>
         <TextView
             android:id="@+id/placeholderMessageText"
             style="@style/SearchTextErrors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/placeholder_margin24"
+            android:textSize="19sp"
             android:layout_marginTop="@dimen/margin16"
             android:visibility="visible"
             tools:text="@string/search_server_error"/>
@@ -120,8 +125,52 @@
             style="@style/SearchButtonErrors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:cornerRadius="54dp"
+            android:textSize="14sp"
+            android:layout_marginTop="@dimen/placeholder_margin24"
             android:visibility="gone"
             tools:visibility="visible" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/historySearched"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/YouSearched"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/youSerched"
+            android:gravity="center_horizontal"
+            android:textSize="19sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginHorizontal="16dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/historyClearTracks"
+            style="@style/SearchButtonErrors"
+            android:text="@string/clearHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cornerRadius="54dp"
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historyTrackList"
+            android:layout_marginStart="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

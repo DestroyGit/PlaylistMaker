@@ -21,6 +21,7 @@
     <color name="search_text_error">#FFFFFF</color>
     <color name="search_button_error_text">#1A1B22</color>
     <color name="search_button_error_background">#FFFFFF</color>
+    <color name="search_text_you_searched">#FFFFFF</color>
 
     <color name="track_name">#FFFFFF</color>
     <color name="track_band_and_duration">#FFFFFF</color>

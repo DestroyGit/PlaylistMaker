@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:textSize="16sp"
             android:layout_marginTop="14dp"
             android:layout_marginStart="@dimen/track_margin8"
             tools:text="Yesterday"/>
@@ -43,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="11sp"
                 android:layout_marginStart="@dimen/track_margin8"
                 android:layout_marginTop="1dp"
                 tools:text="The Beatles"/>
