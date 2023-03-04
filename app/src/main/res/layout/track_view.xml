@@ -22,9 +22,12 @@
 
         <TextView
             style="@style/TrackName"
+            android:maxLines="1"
             android:id="@+id/songName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textSize="16sp"
             android:layout_marginTop="14dp"
             android:layout_marginStart="@dimen/track_margin8"
             tools:text="Yesterday"/>
@@ -39,6 +42,9 @@
                 android:id="@+id/bandName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="11sp"
                 android:layout_marginStart="@dimen/track_margin8"
                 android:layout_marginTop="1dp"
                 tools:text="The Beatles"/>
@@ -55,6 +61,7 @@
                 android:id="@+id/songDuration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:layout_marginTop="1dp"
                 android:layout_marginStart="5dp"
                 tools:text="2:55"/>
@@ -68,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/track_margin23"
         android:layout_marginBottom="@dimen/track_margin23"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="@dimen/placeholder_margin24"
         app:drawableEndCompat="@drawable/ic_forward"/>
 
 </LinearLayout>
