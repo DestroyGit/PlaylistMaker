@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Array
 
 class SearchActivity : AppCompatActivity() {
-    companion object{
+    companion object {
         const val SEARCH_LINE = "SEARCH_LINE"
         const val TRACK_NOT_FOUND = "NOT FOUND"
         const val SERVER_NOT_ANSWER = "SERVER ERROR"
@@ -38,8 +38,8 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var trackRecycler: RecyclerView
     private lateinit var historySearched: LinearLayout
     private lateinit var historyClearTracks: Button
-    private lateinit var searchSharedPrefs : SharedPreferences
-    private lateinit var searchHistory : SearchHistory
+    private lateinit var searchSharedPrefs: SharedPreferences
+    private lateinit var searchHistory: SearchHistory
     private lateinit var adapter: TrackAdapter
     private lateinit var historyAdapter: TrackAdapter
     private lateinit var historyTrackRecycler: RecyclerView
@@ -60,7 +60,7 @@ class SearchActivity : AppCompatActivity() {
 
     private val tracks = ArrayList<Track>()
 
-    private fun initView(){
+    private fun initView() {
         textSearch = findViewById(R.id.inputSearch)
         placeHolderMessage = findViewById(R.id.placeholderMessage)
         placeholderMessageText = findViewById(R.id.placeholderMessageText)
@@ -84,21 +84,22 @@ class SearchActivity : AppCompatActivity() {
         /**
          * Работа адаптера хранения истории
          */
-        historyAdapter = TrackAdapter{
-            searchHistory.removeTrack(it)
-            if (searchHistory.getHistory()?.isEmpty() == true){
-                historySearched.visibility = View.GONE
-            }
-            refreshHistory()
+        historyAdapter = TrackAdapter {
+//            searchHistory.removeTrack(it)
+//            if (searchHistory.getHistory()?.isEmpty() == true){
+//                historySearched.visibility = View.GONE
+//            }
+//            refreshHistory()
         }
         historyTrackRecycler.adapter = historyAdapter
-        historyTrackRecycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
+        historyTrackRecycler.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         refreshHistory()
 
         /**
          * Кнопка очищения истории поиска
          */
-        historyClearTracks.setOnClickListener(){
+        historyClearTracks.setOnClickListener() {
             searchHistory.clearHistory()
             historySearched.visibility = View.GONE
             refreshHistory()
@@ -107,7 +108,7 @@ class SearchActivity : AppCompatActivity() {
         /**
          * Нажатие на список песен
          */
-        adapter = TrackAdapter{
+        adapter = TrackAdapter {
             searchHistory.addTrack(it)
         }
 
@@ -121,9 +122,11 @@ class SearchActivity : AppCompatActivity() {
         /**
          * фокусировка на строке поиска
          */
-        textSearch.setOnFocusChangeListener(){view, hasFocus ->
+        textSearch.setOnFocusChangeListener() { view, hasFocus ->
             historySearched.visibility =
-                if (hasFocus && textSearch.text.isEmpty() == true && searchHistory.getHistory().isEmpty() == false) {
+                if (hasFocus && textSearch.text.isEmpty() == true && searchHistory.getHistory()
+                        .isEmpty() == false
+                ) {
                     placeHolderMessage.visibility = View.GONE
                     refreshHistory()
                     View.VISIBLE
@@ -146,9 +149,10 @@ class SearchActivity : AppCompatActivity() {
         /**
          * очистка списка треков в поиске
          */
-        btnClearText.setOnClickListener(){
+        btnClearText.setOnClickListener() {
             textSearch.setText("")
-            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             inputMethodManager?.hideSoftInputFromWindow(textSearch.windowToken, 0)
             tracks.clear()
             placeHolderMessage.visibility = View.GONE
@@ -159,18 +163,21 @@ class SearchActivity : AppCompatActivity() {
         /**
          * обработка нажатия на кнопку "Обновить", когда нет сети
          */
-        placeholderMessageButtonRefresh.setOnClickListener(){
+        placeholderMessageButtonRefresh.setOnClickListener() {
             searchTrack()
         }
 
         /**
          * обработка введения символов в поисковой строке
          */
-        val searchTextWatcher = object : TextWatcher{
+        val searchTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                historySearched.visibility = if (textSearch.hasFocus() && p0?.isEmpty() == true && searchHistory.getHistory()?.isEmpty() == false) View.VISIBLE else View.GONE
+                historySearched.visibility =
+                    if (textSearch.hasFocus() && p0?.isEmpty() == true && searchHistory.getHistory()
+                            ?.isEmpty() == false
+                    ) View.VISIBLE else View.GONE
                 searchTextString = textSearch.text.toString()
                 btnClearText.visibility = visibilityView(p0)
             }
@@ -180,8 +187,8 @@ class SearchActivity : AppCompatActivity() {
         textSearch.addTextChangedListener(searchTextWatcher)
     }
 
-    private fun refreshHistory(){
-        if (searchHistory.getHistory()?.isEmpty() == true){
+    private fun refreshHistory() {
+        if (searchHistory.getHistory()?.isEmpty() == true) {
             historyAdapter.notifyDataSetChanged()
             return
         }
@@ -193,7 +200,7 @@ class SearchActivity : AppCompatActivity() {
         tracks.clear()
         adapter.notifyDataSetChanged()
         placeHolderMessage.visibility = View.VISIBLE
-        when(text){
+        when (text) {
             TRACK_NOT_FOUND -> {
                 placeholderMessageButtonRefresh.visibility = View.GONE
                 placeholderMessageText.text = getString(R.string.search_not_found)
@@ -207,10 +214,10 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    fun visibilityView(s: CharSequence?): Int{
-        return if (s.isNullOrEmpty()){
+    fun visibilityView(s: CharSequence?): Int {
+        return if (s.isNullOrEmpty()) {
             View.GONE
-        } else{
+        } else {
             View.VISIBLE
         }
     }
@@ -225,34 +232,35 @@ class SearchActivity : AppCompatActivity() {
         textSearch.setText(savedInstanceState.getString(SEARCH_LINE))
     }
 
-    private fun searchTrack(){
-        if (textSearch.text.isNotEmpty()){
-            itunesService.search(textSearch.text.toString()).enqueue(object : Callback<TrackResponse> {
-                override fun onResponse(
-                    call: Call<TrackResponse>,
-                    response: Response<TrackResponse>
-                ) {
-                    if (response.code() == 200){
-                        tracks.clear()
-                        if (response.body()?.results?.isNotEmpty() == true) {
-                            tracks.addAll(response.body()?.results!!)
-                            placeHolderMessage.visibility = View.GONE
-                            adapter.notifyDataSetChanged()
+    private fun searchTrack() {
+        if (textSearch.text.isNotEmpty()) {
+            itunesService.search(textSearch.text.toString())
+                .enqueue(object : Callback<TrackResponse> {
+                    override fun onResponse(
+                        call: Call<TrackResponse>,
+                        response: Response<TrackResponse>
+                    ) {
+                        if (response.code() == 200) {
+                            tracks.clear()
+                            if (response.body()?.results?.isNotEmpty() == true) {
+                                tracks.addAll(response.body()?.results!!)
+                                placeHolderMessage.visibility = View.GONE
+                                adapter.notifyDataSetChanged()
+                            }
+                            if (tracks.isEmpty()) {
+                                showInfo(TRACK_NOT_FOUND)
+                            } else {
+                                //showInfo() // использовать для отображения информации на экране
+                            }
+                        } else {
+                            showInfo(SERVER_NOT_ANSWER)
                         }
-                        if (tracks.isEmpty()){
-                            showInfo(TRACK_NOT_FOUND)
-                        } else{
-                            //showInfo() // использовать для отображения информации на экране
-                        }
-                    } else{
+                    }
+
+                    override fun onFailure(call: Call<TrackResponse>, t: Throwable) {
                         showInfo(SERVER_NOT_ANSWER)
                     }
-                }
-
-                override fun onFailure(call: Call<TrackResponse>, t: Throwable) {
-                    showInfo(SERVER_NOT_ANSWER)
-                }
-            })
+                })
         }
     }
 }
