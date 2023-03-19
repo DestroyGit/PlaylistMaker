@@ -22,4 +22,10 @@
     <dimen name="track_margin8">8dp</dimen>
     <dimen name="track_margin23">8dp</dimen>
     <dimen name="placeholder_margin24">24dp</dimen>
+    <dimen name="player_attributes_textize">12sp</dimen>
+    <dimen name="player_small_button">52dp</dimen>
+    <dimen name="player_big_button">84dp</dimen>
+    <dimen name="player_height_attributes">32dp</dimen>
+    <dimen name="guide_line24">24dp</dimen>
+    <dimen name="guide_line16">16dp</dimen>
 </resources>

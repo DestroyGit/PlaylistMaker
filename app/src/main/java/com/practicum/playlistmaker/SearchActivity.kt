@@ -2,11 +2,13 @@ package com.practicum.playlistmaker
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -27,6 +29,7 @@ class SearchActivity : AppCompatActivity() {
         const val TRACK_NOT_FOUND = "NOT FOUND"
         const val SERVER_NOT_ANSWER = "SERVER ERROR"
         const val SEARCH_PREFERENCES = "SEARCH_PREFERENCES"
+        const val TRACKS_FOR_PLAYER = "TRACKS_FOR_PLAYER"
     }
 
     private lateinit var textSearch: EditText
@@ -85,6 +88,7 @@ class SearchActivity : AppCompatActivity() {
          * Работа адаптера хранения истории
          */
         historyAdapter = TrackAdapter {
+            startPlayerActivity(it)
 //            searchHistory.removeTrack(it)
 //            if (searchHistory.getHistory()?.isEmpty() == true){
 //                historySearched.visibility = View.GONE
@@ -110,6 +114,7 @@ class SearchActivity : AppCompatActivity() {
          */
         adapter = TrackAdapter {
             searchHistory.addTrack(it)
+            startPlayerActivity(it)
         }
 
         /**
@@ -122,10 +127,9 @@ class SearchActivity : AppCompatActivity() {
         /**
          * фокусировка на строке поиска
          */
-        textSearch.setOnFocusChangeListener() { view, hasFocus ->
+        textSearch.setOnFocusChangeListener() { _, hasFocus ->
             historySearched.visibility =
-                if (hasFocus && textSearch.text.isEmpty() == true && searchHistory.getHistory()
-                        .isEmpty() == false
+                if (hasFocus && textSearch.text.isEmpty() && searchHistory.getHistory().isNotEmpty()
                 ) {
                     placeHolderMessage.visibility = View.GONE
                     refreshHistory()
@@ -185,6 +189,12 @@ class SearchActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {}
         }
         textSearch.addTextChangedListener(searchTextWatcher)
+    }
+
+    private fun startPlayerActivity(track: Track){
+        val intent = Intent(this,PlayerActivity::class.java)
+        intent.putExtra(TRACKS_FOR_PLAYER, gson.toJson(track))
+        startActivity(intent)
     }
 
     private fun refreshHistory() {
