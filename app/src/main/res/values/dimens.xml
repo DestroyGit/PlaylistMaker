@@ -28,4 +28,5 @@
     <dimen name="player_height_attributes">32dp</dimen>
     <dimen name="guide_line24">24dp</dimen>
     <dimen name="guide_line16">16dp</dimen>
+    <dimen name="player_round_corner">8dp</dimen>
 </resources>
