@@ -18,6 +18,7 @@
         android:background="@color/settings_background">
 
         <ImageView
+            android:id="@+id/btnBack"
             style="@style/HeadsImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

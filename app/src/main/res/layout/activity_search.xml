@@ -16,6 +16,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/btnBack"
             style="@style/HeadsImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,5 +173,16 @@
             app:cornerRadius="54dp" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/searchProgressBar"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/progress_bar"
+        android:progress="45"
+        android:layout_marginTop="148dp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
 </LinearLayout>
