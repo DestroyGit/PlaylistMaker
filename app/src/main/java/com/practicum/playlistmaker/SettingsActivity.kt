@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.switchmaterial.SwitchMaterial
 
@@ -19,6 +20,7 @@ class SettingsActivity : AppCompatActivity() {
         val buttonReply = findViewById<TextView>(R.id.btn_reply)
         val buttonSupport = findViewById<TextView>(R.id.btn_support)
         val buttonForward = findViewById<TextView>(R.id.btn_forward)
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
 
         val sharedPrefsSettings = getSharedPreferences(SETTINGS_PREFERENCES, MODE_PRIVATE)
 
@@ -57,6 +59,10 @@ class SettingsActivity : AppCompatActivity() {
             val intent =
                 Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_offer)))
             startActivity(intent)
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 }

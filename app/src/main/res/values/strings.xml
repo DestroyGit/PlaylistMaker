@@ -25,4 +25,5 @@
     <string name="player_attributes_year">Год</string>
     <string name="player_attributes_genre">Жанр</string>
     <string name="player_attributes_country">Страна</string>
+    <string name="player_current_time_zero">00:00</string>
 </resources>
