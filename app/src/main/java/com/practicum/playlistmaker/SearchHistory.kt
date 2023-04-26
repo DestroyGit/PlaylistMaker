@@ -1,13 +1,9 @@
 package com.practicum.playlistmaker
 
 import android.content.SharedPreferences
-import android.media.MediaParser
-import android.util.Log
-import android.view.View
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.practicum.playlistmaker.domain.Track
 import java.util.ArrayList
 
 private const val HISTORY_KEY = "HISTORY_KEY"
